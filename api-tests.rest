@@ -1,0 +1,22 @@
+### Lohnabrechnung Konverter API Test
+@baseUrl = http://localhost:8000
+
+###
+GET {{baseUrl}}/
+
+###
+GET {{baseUrl}}/health
+
+###
+POST {{baseUrl}}/test-email
+Content-Type: multipart/form-data
+
+email=test@beispiel.de
+
+###
+POST {{baseUrl}}/convert
+Content-Type: multipart/form-data
+
+< ./test-data/Lohnabrechnung_Test.xlsx
+email=empfaenger@beispiel.de
+mandant=10001
